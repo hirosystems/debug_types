@@ -11,10 +11,10 @@ use requests::RequestCommand;
 use responses::Response;
 use serde::{Deserialize, Serialize};
 
-mod events;
-mod requests;
-mod responses;
-mod types;
+pub mod events;
+pub mod requests;
+pub mod responses;
+pub mod types;
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(untagged)]
