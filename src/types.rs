@@ -8,86 +8,102 @@ pub struct Capabilities {
     /**
      * The debug adapter supports the 'configurationDone' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsConfigurationDoneRequest: Option<bool>,
 
     /**
      * The debug adapter supports function breakpoints.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsFunctionBreakpoints: Option<bool>,
 
     /**
      * The debug adapter supports conditional breakpoints.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsConditionalBreakpoints: Option<bool>,
 
     /**
      * The debug adapter supports breakpoints that break execution after a
      * specified number of hits.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsHitConditionalBreakpoints: Option<bool>,
 
     /**
      * The debug adapter supports a (side effect free) evaluate request for data
      * hovers.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsEvaluateForHovers: Option<bool>,
 
     /**
      * Available exception filter options for the 'setExceptionBreakpoints'
      * request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub exceptionBreakpointFilters: Option<Vec<ExceptionBreakpointsFilter>>,
 
     /**
      * The debug adapter supports stepping back via the 'stepBack' and
      * 'reverseContinue' requests.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsStepBack: Option<bool>,
 
     /**
      * The debug adapter supports setting a variable to a value.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsSetVariable: Option<bool>,
 
     /**
      * The debug adapter supports restarting a frame.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsRestartFrame: Option<bool>,
 
     /**
      * The debug adapter supports the 'gotoTargets' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsGotoTargetsRequest: Option<bool>,
 
     /**
      * The debug adapter supports the 'stepInTargets' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsStepInTargetsRequest: Option<bool>,
 
     /**
      * The debug adapter supports the 'completions' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsCompletionsRequest: Option<bool>,
 
     /**
      * The set of characters that should trigger completion in a REPL. If not
      * specified, the UI should assume the '.' character.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub completionTriggerCharacters: Option<Vec<String>>,
 
     /**
      * The debug adapter supports the 'modules' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsModulesRequest: Option<bool>,
 
     /**
      * The set of additional module information exposed by the debug adapter.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub additionalModuleColumns: Option<Vec<ColumnDescriptor>>,
 
     /**
      * Checksum algorithms supported by the debug adapter.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportedChecksumAlgorithms: Option<Vec<ChecksumAlgorithm>>,
 
     /**
@@ -95,35 +111,41 @@ pub struct Capabilities {
      * should not implement 'restart' by terminating and relaunching the adapter
      * but by calling the RestartRequest.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsRestartRequest: Option<bool>,
 
     /**
      * The debug adapter supports 'exceptionOptions' on the
      * setExceptionBreakpoints request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsExceptionOptions: Option<bool>,
 
     /**
      * The debug adapter supports a 'format' attribute on the stackTraceRequest,
      * variablesRequest, and evaluateRequest.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsValueFormattingOptions: Option<bool>,
 
     /**
      * The debug adapter supports the 'exceptionInfo' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsExceptionInfoRequest: Option<bool>,
 
     /**
      * The debug adapter supports the 'terminateDebuggee' attribute on the
      * 'disconnect' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportTerminateDebuggee: Option<bool>,
 
     /**
      * The debug adapter supports the 'suspendDebuggee' attribute on the
      * 'disconnect' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportSuspendDebuggee: Option<bool>,
 
     /**
@@ -131,86 +153,102 @@ pub struct Capabilities {
      * requires that both the 'startFrame' and 'levels' arguments and an optional
      * 'totalFrames' result of the 'StackTrace' request are supported.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsDelayedStackTraceLoading: Option<bool>,
 
     /**
      * The debug adapter supports the 'loadedSources' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsLoadedSourcesRequest: Option<bool>,
 
     /**
      * The debug adapter supports logpoints by interpreting the 'logMessage'
      * attribute of the SourceBreakpoint.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsLogPoints: Option<bool>,
 
     /**
      * The debug adapter supports the 'terminateThreads' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsTerminateThreadsRequest: Option<bool>,
 
     /**
      * The debug adapter supports the 'setExpression' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsSetExpression: Option<bool>,
 
     /**
      * The debug adapter supports the 'terminate' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsTerminateRequest: Option<bool>,
 
     /**
      * The debug adapter supports data breakpoints.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsDataBreakpoints: Option<bool>,
 
     /**
      * The debug adapter supports the 'readMemory' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsReadMemoryRequest: Option<bool>,
 
     /**
      * The debug adapter supports the 'writeMemory' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsWriteMemoryRequest: Option<bool>,
 
     /**
      * The debug adapter supports the 'disassemble' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsDisassembleRequest: Option<bool>,
 
     /**
      * The debug adapter supports the 'cancel' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsCancelRequest: Option<bool>,
 
     /**
      * The debug adapter supports the 'breakpointLocations' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsBreakpointLocationsRequest: Option<bool>,
 
     /**
      * The debug adapter supports the 'clipboard' context value in the 'evaluate'
      * request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsClipboardContext: Option<bool>,
 
     /**
      * The debug adapter supports stepping granularities (argument 'granularity')
      * for the stepping requests.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsSteppingGranularity: Option<bool>,
 
     /**
      * The debug adapter supports adding breakpoints based on instruction
      * references.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsInstructionBreakpoints: Option<bool>,
 
     /**
      * The debug adapter supports 'filterOptions' as an argument on the
      * 'setExceptionBreakpoints' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsExceptionFilterOptions: Option<bool>,
 
     /**
@@ -218,6 +256,7 @@ pub struct Capabilities {
      * requests ('continue', 'next', 'stepIn', 'stepOut', 'reverseContinue',
      * 'stepBack').
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsSingleThreadExecutionRequests: Option<bool>,
 }
 
@@ -239,18 +278,21 @@ pub struct ExceptionBreakpointsFilter {
      * An optional help text providing additional information about the exception
      * filter. This String is typically shown as a hover and must be translated.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
 
     /**
      * Initial value of the filter option. If not specified a value 'false' is
      * assumed.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub default: Option<bool>,
 
     /**
      * Controls whether a condition can be specified for this filter option. If
      * false or missing, a condition can not be set.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsCondition: Option<bool>,
 
     /**
@@ -258,6 +300,7 @@ pub struct ExceptionBreakpointsFilter {
      * String is shown as the placeholder text for a text box and must be
      * translated.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub conditionDescription: Option<String>,
 }
 
@@ -280,28 +323,33 @@ pub struct Message {
      * An object used as a dictionary for looking up the variables in the format
      * String.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub variables: Option<HashMap<String, String>>,
 
     /**
      * If true send to telemetry.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub sendTelemetry: Option<bool>,
 
     /**
      * If true show user.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub showUser: Option<bool>,
 
     /**
      * An optional url where additional information about this message can be
      * found.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
 
     /**
      * An optional label that is presented to the user as the UI for opening the
      * url.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub urlLabel: Option<String>,
 }
 
@@ -326,44 +374,52 @@ pub struct Module {
      * defined, but usually this would be a full path to the on-disk file for the
      * module.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub path: Option<String>,
 
     /**
      * True if the module is optimized.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub isOptimized: Option<bool>,
 
     /**
      * True if the module is considered 'user code' by a debugger that supports
      * 'Just My Code'.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub isUserCode: Option<bool>,
 
     /**
      * Version of Module.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<String>,
 
     /**
      * User understandable description of if symbols were found for the module
      * (ex: 'Symbols Loaded', 'Symbols not found', etc.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub symbolStatus: Option<String>,
 
     /**
      * Logical full path to the symbol file. The exact definition is
      * implementation defined.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub symbolFilePath: Option<String>,
 
     /**
      * Module created or modified.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub dateTimeStamp: Option<String>,
 
     /**
      * Address range covered by this module.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub addressRange: Option<String>,
 }
 
@@ -394,6 +450,7 @@ pub struct ColumnDescriptor {
      * Format to use for the rendered values in this column. TBD how the format
      * Strings looks like.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub format: Option<String>,
 
     /**
@@ -401,11 +458,13 @@ pub struct ColumnDescriptor {
      * Values: 'String', 'number', 'boolean', 'unixTimestampUTC', etc.
      */
     #[serde(rename = "type")]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub column_type: Option<ColumnType>,
 
     /**
      * Width of this column in characters (hint only).
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub width: Option<i32>,
 }
 
@@ -450,6 +509,7 @@ pub struct Source {
      * has a name.
      * When sending a source to the debug adapter this name is optional.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
 
     /**
@@ -457,6 +517,7 @@ pub struct Source {
      * It is only used to locate and load the content of the source if no
      * sourceReference is specified (or its value is 0).
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub path: Option<String>,
 
     /**
@@ -466,6 +527,7 @@ pub struct Source {
      * persist a source.
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub sourceReference: Option<i32>,
 
     /**
@@ -474,18 +536,21 @@ pub struct Source {
      * available or that it is skipped on stepping.
      * Values: 'normal', 'emphasize', 'deemphasize', etc.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub presentationHint: Option<PresentationHint>,
 
     /**
      * The (optional) origin of this source: possible values 'internal module',
      * 'inlined content from source map', etc.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub origin: Option<String>,
 
     /**
      * An optional list of sources that are related to this source. These may be
      * the source that generated this source.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub sources: Option<Vec<Source>>,
 
     /**
@@ -493,11 +558,13 @@ pub struct Source {
      * The client should leave the data intact and persist it across sessions. The
      * client should not interpret the data.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub adapterData: Option<String>,
 
     /**
      * The checksums associated with this file.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub checksums: Option<Vec<Checksum>>,
 }
 
@@ -519,6 +586,7 @@ pub struct StackFrame {
     /**
      * The optional source of the frame.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub source: Option<Source>,
 
     /**
@@ -536,11 +604,13 @@ pub struct StackFrame {
     /**
      * An optional end line of the range covered by the stack frame.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub endLine: Option<i32>,
 
     /**
      * An optional end column of the range covered by the stack frame.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub endColumn: Option<i32>,
 
     /**
@@ -548,17 +618,20 @@ pub struct StackFrame {
      * Clients should only use this if the debug adapter supports the 'restart'
      * request (capability 'supportsRestartRequest' is true).
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub canRestart: Option<bool>,
 
     /**
      * Optional memory reference for the current instruction pointer in this
      * frame.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub instructionPointerReference: Option<String>,
 
     /**
      * The module associated with this frame, if any.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub moduleId: Option<NumberOrString>,
 
     /**
@@ -568,6 +641,7 @@ pub struct StackFrame {
      * be used to change the appearance of a frame in a 'subtle' way.
      * Values: 'normal', 'label', 'subtle', etc.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub presentationHint: Option<PresentationHint>,
 }
 
@@ -590,6 +664,7 @@ pub struct Scope {
      * should be returned from a 'scopes' request.
      * etc.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub presentationHint: Option<PresentationHint>,
 
     /**
@@ -603,6 +678,7 @@ pub struct Scope {
      * The client can use this optional information to present the variables in a
      * paged UI and fetch them in chunks.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub namedVariables: Option<i32>,
 
     /**
@@ -610,6 +686,7 @@ pub struct Scope {
      * The client can use this optional information to present the variables in a
      * paged UI and fetch them in chunks.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub indexedVariables: Option<i32>,
 
     /**
@@ -621,26 +698,31 @@ pub struct Scope {
     /**
      * Optional source for this scope.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub source: Option<Source>,
 
     /**
      * Optional start line of the range covered by this scope.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub line: Option<i32>,
 
     /**
      * Optional start column of the range covered by this scope.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub column: Option<i32>,
 
     /**
      * Optional end line of the range covered by this scope.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub endLine: Option<i32>,
 
     /**
      * Optional end column of the range covered by this scope.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub endColumn: Option<i32>,
 }
 
@@ -671,18 +753,21 @@ pub struct Variable {
      * 'initialize' request.
      */
     #[serde(rename = "type")]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub var_type: Option<String>,
 
     /**
      * Properties of a variable that can be used to determine how to render the
      * variable in the UI.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub presentationHint: Option<VariablePresentationHint>,
 
     /**
      * Optional evaluatable name of this variable which can be passed to the
      * 'EvaluateRequest' to fetch the variable's value.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluateName: Option<String>,
 
     /**
@@ -696,6 +781,7 @@ pub struct Variable {
      * The client can use this optional information to present the children in a
      * paged UI and fetch them in chunks.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub namedVariables: Option<i32>,
 
     /**
@@ -703,6 +789,7 @@ pub struct Variable {
      * The client can use this optional information to present the children in a
      * paged UI and fetch them in chunks.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub indexedVariables: Option<i32>,
 
     /**
@@ -711,6 +798,7 @@ pub struct Variable {
      * This attribute is only required if the client has passed the value true for
      * the 'supportsMemoryReferences' capability of the 'initialize' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub memoryReference: Option<String>,
 }
 
@@ -777,6 +865,7 @@ pub struct VariablePresentationHint {
      * generally be used instead.
      * etc.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     kind: Option<VariableKind>,
 
     /**
@@ -796,6 +885,7 @@ pub struct VariablePresentationHint {
      * data breakpoint.
      * etc.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     attributes: Option<Vec<VariableAttribute>>,
 
     /**
@@ -803,6 +893,7 @@ pub struct VariablePresentationHint {
      * the listed values.
      * Values: 'public', 'private', 'protected', 'internal', 'final', etc.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub visibility: Option<Visibility>,
 
     /**
@@ -816,6 +907,7 @@ pub struct VariablePresentationHint {
      * 'variablesReference' must refer to a variable that will provide the value
      * through another 'variable' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub lazy: Option<bool>,
 }
 
@@ -830,16 +922,19 @@ pub struct BreakpointLocation {
     /**
      * Optional start column of breakpoint location.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub column: Option<i32>,
 
     /**
      * Optional end line of breakpoint location if the location covers a range.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub endLine: Option<i32>,
 
     /**
      * Optional end column of breakpoint location if the location covers a range.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub endColumn: Option<i32>,
 }
 
@@ -854,6 +949,7 @@ pub struct SourceBreakpoint {
     /**
      * An optional source column of the breakpoint.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub column: Option<i32>,
 
     /**
@@ -861,6 +957,7 @@ pub struct SourceBreakpoint {
      * It is only honored by a debug adapter if the capability
      * 'supportsConditionalBreakpoints' is true.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub condition: Option<String>,
 
     /**
@@ -870,6 +967,7 @@ pub struct SourceBreakpoint {
      * The attribute is only honored by a debug adapter if the capability
      * 'supportsHitConditionalBreakpoints' is true.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub hitCondition: Option<String>,
 
     /**
@@ -879,6 +977,7 @@ pub struct SourceBreakpoint {
      * The attribute is only honored by a debug adapter if the capability
      * 'supportsLogPoints' is true.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub logMessage: Option<String>,
 }
 
@@ -895,6 +994,7 @@ pub struct FunctionBreakpoint {
      * It is only honored by a debug adapter if the capability
      * 'supportsConditionalBreakpoints' is true.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub condition: Option<String>,
 
     /**
@@ -904,6 +1004,7 @@ pub struct FunctionBreakpoint {
      * The attribute is only honored by a debug adapter if the capability
      * 'supportsHitConditionalBreakpoints' is true.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub hitCondition: Option<String>,
 }
 
@@ -927,11 +1028,13 @@ pub struct DataBreakpoint {
     /**
      * The access type of the data.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub accessType: Option<DataBreakpointAccessType>,
 
     /**
      * An optional expression for conditional breakpoints.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub condition: Option<String>,
 
     /**
@@ -939,6 +1042,7 @@ pub struct DataBreakpoint {
      * ignored.
      * The backend is expected to interpret the expression as needed.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub hitCondition: Option<String>,
 }
 
@@ -956,6 +1060,7 @@ pub struct InstructionBreakpoint {
      * An optional offset from the instruction reference.
      * This can be negative.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub offset: Option<i32>,
 
     /**
@@ -963,6 +1068,7 @@ pub struct InstructionBreakpoint {
      * It is only honored by a debug adapter if the capability
      * 'supportsConditionalBreakpoints' is true.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub condition: Option<String>,
 
     /**
@@ -972,6 +1078,7 @@ pub struct InstructionBreakpoint {
      * The attribute is only honored by a debug adapter if the capability
      * 'supportsHitConditionalBreakpoints' is true.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub hitCondition: Option<String>,
 }
 
@@ -982,6 +1089,7 @@ pub struct Breakpoint {
      * An optional identifier for the breakpoint. It is needed if breakpoint
      * events are used to update or remove breakpoints.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<i32>,
 
     /**
@@ -995,26 +1103,31 @@ pub struct Breakpoint {
      * This is shown to the user and can be used to explain why a breakpoint could
      * not be verified.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 
     /**
      * The source where the breakpoint is located.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub source: Option<Source>,
 
     /**
      * The start line of the actual range covered by the breakpoint.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub line: Option<i32>,
 
     /**
      * An optional start column of the actual range covered by the breakpoint.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub column: Option<i32>,
 
     /**
      * An optional end line of the actual range covered by the breakpoint.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub endLine: Option<i32>,
 
     /**
@@ -1022,17 +1135,20 @@ pub struct Breakpoint {
      * If no end line is given, then the end column is assumed to be in the start
      * line.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub endColumn: Option<i32>,
 
     /**
      * An optional memory reference to where the breakpoint is set.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub instructionReference: Option<String>,
 
     /**
      * An optional offset from the instruction reference.
      * This can be negative.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub offset: Option<i32>,
 }
 
@@ -1079,22 +1195,26 @@ pub struct GotoTarget {
     /**
      * An optional column of the goto target.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub column: Option<i32>,
 
     /**
      * An optional end line of the range covered by the goto target.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub endLine: Option<i32>,
 
     /**
      * An optional end column of the range covered by the goto target.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub endColumn: Option<i32>,
 
     /**
      * Optional memory reference for the instruction pointer value represented by
      * this target.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub instructionPointerReference: Option<String>,
 }
 
@@ -1110,18 +1230,21 @@ pub struct CompletionItem {
     /**
      * If text is not falsy then it is inserted instead of the label.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub text: Option<String>,
 
     /**
      * A String that should be used when comparing this item with other items.
      * When `falsy` the label is used.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub sortText: Option<String>,
 
     /**
      * A human-readable String with additional information about this item, like
      * type or symbol information.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub detail: Option<String>,
 
     /**
@@ -1129,6 +1252,7 @@ pub struct CompletionItem {
      * item in the UI with an icon.
      */
     #[serde(rename = "type")]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub item_type: Option<CompletionItemType>,
 
     /**
@@ -1137,6 +1261,7 @@ pub struct CompletionItem {
      * If missing the text is added at the location specified by the
      * CompletionsRequest's 'column' attribute.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub start: Option<i32>,
 
     /**
@@ -1145,6 +1270,7 @@ pub struct CompletionItem {
      * If missing the value 0 is assumed which results in the completion text
      * being inserted.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub length: Option<i32>,
 
     /**
@@ -1153,6 +1279,7 @@ pub struct CompletionItem {
      * The start position must in the range 0 and length of the completion text.
      * If omitted the selection starts at the end of the completion text.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub selectionStart: Option<i32>,
 
     /**
@@ -1161,6 +1288,7 @@ pub struct CompletionItem {
      * The selection can not extend beyond the bounds of the completion text.
      * If omitted the length is assumed to be 0.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub selectionLength: Option<i32>,
 }
 
@@ -1217,6 +1345,7 @@ pub struct ValueFormat {
     /**
      * Display the value in hex.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub hex: Option<bool>,
 }
 
@@ -1226,42 +1355,50 @@ pub struct StackFrameFormat {
     /**
      * Display the value in hex.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub hex: Option<bool>,
 
     /**
      * Displays parameters for the stack frame.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub parameters: Option<bool>,
 
     /**
      * Displays the types of parameters for the stack frame.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub parameterTypes: Option<bool>,
 
     /**
      * Displays the names of parameters for the stack frame.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub parameterNames: Option<bool>,
 
     /**
      * Displays the values of parameters for the stack frame.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub parameterValues: Option<bool>,
 
     /**
      * Displays the line number of the stack frame.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub line: Option<bool>,
 
     /**
      * Displays the module of the stack frame.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub module: Option<bool>,
 
     /**
      * Includes all stack frames, including those the debug adapter might
      * otherwise hide.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub includeAll: Option<bool>,
 }
 
@@ -1279,6 +1416,7 @@ pub struct ExceptionFilterOptions {
      * The exception will break into the debugger if the result of the condition
      * is true.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub condition: Option<String>,
 }
 
@@ -1291,6 +1429,7 @@ pub struct ExceptionOptions {
      * By convention the first segment of the path is a category that is used to
      * group exceptions in the UI.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub path: Option<Vec<ExceptionPathSegment>>,
 
     /**
@@ -1315,6 +1454,7 @@ pub struct ExceptionPathSegment {
      * If false or missing this segment matches the names provided, otherwise it
      * matches anything except the names provided.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub negate: Option<bool>,
 
     /**
@@ -1330,32 +1470,38 @@ pub struct ExceptionDetails {
     /**
      * Message contained in the exception.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 
     /**
      * Short type name of the exception object.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub typeName: Option<String>,
 
     /**
      * Fully-qualified type name of the exception object.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub fullTypeName: Option<String>,
 
     /**
      * Optional expression that can be evaluated in the current scope to obtain
      * the exception object.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub evaluateName: Option<String>,
 
     /**
      * Stack trace at the time the exception was thrown.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub stackTrace: Option<String>,
 
     /**
      * Details of the exception contained by this exception, if any.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub innerException: Option<Vec<ExceptionDetails>>,
 }
 
@@ -1372,6 +1518,7 @@ pub struct DisassembledInstruction {
      * Optional raw bytes representing the instruction and its operands, in an
      * implementation-defined format.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub instructionBytes: Option<String>,
 
     /**
@@ -1384,6 +1531,7 @@ pub struct DisassembledInstruction {
      * Name of the symbol that corresponds with the location of this instruction,
      * if any.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub symbol: Option<String>,
 
     /**
@@ -1392,27 +1540,32 @@ pub struct DisassembledInstruction {
      * but can be omitted afterwards if this instruction maps to the same source
      * file as the previous instruction.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub location: Option<Source>,
 
     /**
      * The line within the source location that corresponds to this instruction,
      * if any.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub line: Option<i32>,
 
     /**
      * The column within the line that corresponds to this instruction, if any.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub column: Option<i32>,
 
     /**
      * The end line of the range that corresponds to this instruction, if any.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub endLine: Option<i32>,
 
     /**
      * The end column of the range that corresponds to this instruction, if any.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub endColumn: Option<i32>,
 }
 

@@ -63,11 +63,13 @@ pub struct RunInTerminalRequestArguments {
      * What kind of terminal to launch.
      * Values: 'integrated', 'external', etc.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub kind: Option<TerminalKind>,
 
     /**
      * Optional title of the terminal.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,
 
     /**
@@ -85,6 +87,7 @@ pub struct RunInTerminalRequestArguments {
      * Environment key-value pairs that are added to or removed from the default
      * environment.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub env: Option<HashMap<String, Option<String>>>,
 }
 
@@ -101,11 +104,13 @@ pub struct InitializeRequestArguments {
     /**
      * The ID of the (frontend) client using this adapter.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub clientID: Option<String>,
 
     /**
      * The human readable name of the (frontend) client using this adapter.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub clientName: Option<String>,
 
     /**
@@ -117,16 +122,19 @@ pub struct InitializeRequestArguments {
      * The ISO-639 locale of the (frontend) client using this adapter, e.g. en-US
      * or de-CH.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub locale: Option<String>,
 
     /**
      * If true all line numbers are 1-based (default).
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub linesStartAt1: Option<bool>,
 
     /**
      * If true all column numbers are 1-based (default).
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub columnsStartAt1: Option<bool>,
 
     /**
@@ -134,41 +142,49 @@ pub struct InitializeRequestArguments {
      * is the native format.
      * Values: 'path', 'uri', etc.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub pathFormat: Option<PathFormat>,
 
     /**
      * Client supports the optional type attribute for variables.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsVariableType: Option<bool>,
 
     /**
      * Client supports the paging of variables.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsVariablePaging: Option<bool>,
 
     /**
      * Client supports the runInTerminal request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsRunInTerminalRequest: Option<bool>,
 
     /**
      * Client supports memory references.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsMemoryReferences: Option<bool>,
 
     /**
      * Client supports progress reporting.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsProgressReporting: Option<bool>,
 
     /**
      * Client supports the invalidated event.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsInvalidatedEvent: Option<bool>,
 
     /**
      * Client supports the memory event.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub supportsMemoryEvent: Option<bool>,
 }
 
@@ -179,6 +195,7 @@ pub struct LaunchRequestArguments {
      * If noDebug is true the launch request should launch the program without
      * enabling debugging.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub noDebug: Option<bool>,
 
     /**
@@ -186,6 +203,7 @@ pub struct LaunchRequestArguments {
      * The data is sent as the 'restart' attribute of the 'terminated' event.
      * The client should leave the data intact.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     __restart: Option<String>,
 
     /**
@@ -233,6 +251,7 @@ pub struct AttachRequestArguments {
      * The data is sent as the 'restart' attribute of the 'terminated' event.
      * The client should leave the data intact.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     __restart: Option<String>,
 }
 
@@ -242,6 +261,7 @@ pub struct RestartArguments {
     /**
      * The latest version of the 'launch' or 'attach' configuration.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub arguments: Option<LaunchRequestArguments>,
 }
 
@@ -252,6 +272,7 @@ pub struct DisconnectArguments {
      * A value of true indicates that this 'disconnect' request is part of a
      * restart sequence.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub restart: Option<bool>,
 
     /**
@@ -261,6 +282,7 @@ pub struct DisconnectArguments {
      * The attribute is only honored by a debug adapter if the capability
      * 'supportTerminateDebuggee' is true.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub terminateDebuggee: Option<bool>,
 
     /**
@@ -270,6 +292,7 @@ pub struct DisconnectArguments {
      * The attribute is only honored by a debug adapter if the capability
      * 'supportSuspendDebuggee' is true.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub suspendDebuggee: Option<bool>,
 }
 
@@ -280,6 +303,7 @@ pub struct TerminateArguments {
      * A value of true indicates that this 'terminate' request is part of a
      * restart sequence.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub restart: Option<bool>,
 }
 
@@ -302,12 +326,14 @@ pub struct BreakpointLocationsArguments {
      * Optional start column of range to search possible breakpoint locations in.
      * If no start column is given, the first column in the start line is assumed.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub column: Option<i32>,
 
     /**
      * Optional end line of range to search possible breakpoint locations in. If
      * no end line is given, then the end line is assumed to be the start line.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub endLine: Option<i32>,
 
     /**
@@ -315,6 +341,7 @@ pub struct BreakpointLocationsArguments {
      * no end column is given, then it is assumed to be in the last column of the
      * end line.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub endColumn: Option<i32>,
 }
 
@@ -330,17 +357,20 @@ pub struct SetBreakpointsArguments {
     /**
      * The code locations of the breakpoints.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub breakpoints: Option<Vec<SourceBreakpoint>>,
 
     /**
      * Deprecated: The code locations of the breakpoints.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub lines: Option<Vec<i32>>,
 
     /**
      * A value of true indicates that the underlying source has been modified
      * which results in new breakpoint locations.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub sourceModified: Option<bool>,
 }
 
@@ -370,6 +400,7 @@ pub struct SetExceptionBreakpointsArguments {
      * capability 'supportsExceptionFilterOptions' is true. The 'filter' and
      * 'filterOptions' sets are additive.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub filterOptions: Option<Vec<ExceptionFilterOptions>>,
 
     /**
@@ -377,6 +408,7 @@ pub struct SetExceptionBreakpointsArguments {
      * The attribute is only honored by a debug adapter if the capability
      * 'supportsExceptionOptions' is true.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub exceptionOptions: Option<Vec<ExceptionOptions>>,
 }
 
@@ -387,6 +419,7 @@ pub struct DataBreakpointInfoArguments {
      * Reference to the Variable container if the data breakpoint is requested for
      * a child of the container.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub variablesReference: Option<i32>,
 
     /**
@@ -429,6 +462,7 @@ pub struct ContinueArguments {
      * If this optional flag is true, execution is resumed only for the thread
      * with given 'threadId'.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub singleThread: Option<bool>,
 }
 
@@ -444,12 +478,14 @@ pub struct NextArguments {
     /**
      * If this optional flag is true, all other suspended threads are not resumed.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub singleThread: Option<bool>,
 
     /**
      * Optional granularity to step. If no granularity is specified, a granularity
      * of 'statement' is assumed.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub granularity: Option<SteppingGranularity>,
 }
 
@@ -465,17 +501,20 @@ pub struct StepInArguments {
     /**
      * If this optional flag is true, all other suspended threads are not resumed.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub singleThread: Option<bool>,
 
     /**
      * Optional id of the target to step into.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub targetId: Option<i32>,
 
     /**
      * Optional granularity to step. If no granularity is specified, a granularity
      * of 'statement' is assumed.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub granularity: Option<SteppingGranularity>,
 }
 
@@ -491,12 +530,14 @@ pub struct StepOutArguments {
     /**
      * If this optional flag is true, all other suspended threads are not resumed.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub singleThread: Option<bool>,
 
     /**
      * Optional granularity to step. If no granularity is specified, a granularity
      * of 'statement' is assumed.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub granularity: Option<SteppingGranularity>,
 }
 
@@ -512,12 +553,14 @@ pub struct StepBackArguments {
     /**
      * If this optional flag is true, all other suspended threads are not resumed.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub singleThread: Option<bool>,
 
     /**
      * Optional granularity to step. If no granularity is specified, a granularity
      * of 'statement' is assumed.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub granularity: Option<SteppingGranularity>,
 }
 
@@ -535,6 +578,7 @@ pub struct ReverseContinueArguments {
      * If this optional flag is true, backward execution is resumed only for the
      * thread with given 'threadId'.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub singleThread: Option<bool>,
 }
 
@@ -581,12 +625,14 @@ pub struct StackTraceArguments {
     /**
      * The index of the first frame to return; if omitted frames start at 0.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub startFrame: Option<i32>,
 
     /**
      * The maximum number of frames to return. If levels is not specified or 0,
      * all frames are returned.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub levels: Option<i32>,
 
     /**
@@ -594,6 +640,7 @@ pub struct StackTraceArguments {
      * The attribute is only honored by a debug adapter if the capability
      * 'supportsValueFormattingOptions' is true.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub format: Option<StackFrameFormat>,
 }
 
@@ -626,17 +673,20 @@ pub struct VariablesArguments {
      * omitted, both types are fetched.
      * Values: 'indexed', 'named', etc.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub filter: Option<VariableFilter>,
 
     /**
      * The index of the first variable to return; if omitted children start at 0.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub start: Option<i32>,
 
     /**
      * The number of variables to return. If count is missing or 0, all variables
      * are returned.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub count: Option<i32>,
 
     /**
@@ -644,6 +694,7 @@ pub struct VariablesArguments {
      * The attribute is only honored by a debug adapter if the capability
      * 'supportsValueFormattingOptions' is true.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub format: Option<ValueFormat>,
 }
 
@@ -668,6 +719,7 @@ pub struct SetVariableArguments {
     /**
      * Specifies details on how to format the response value.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub format: Option<ValueFormat>,
 }
 
@@ -678,6 +730,7 @@ pub struct SourceArguments {
      * Specifies the source content to load. Either source.path or
      * source.sourceReference must be specified.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub source: Option<Source>,
 
     /**
@@ -694,6 +747,7 @@ pub struct TerminateThreadsArguments {
     /**
      * Ids of threads to be terminated.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub threadIds: Option<Vec<i32>>,
 }
 
@@ -703,12 +757,14 @@ pub struct ModulesArguments {
     /**
      * The index of the first module to return; if omitted modules start at 0.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub startModule: Option<i32>,
 
     /**
      * The number of modules to return. If moduleCount is not specified or 0, all
      * modules are returned.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub moduleCount: Option<i32>,
 }
 
@@ -734,6 +790,7 @@ pub struct EvaluateArguments {
      * Evaluate the expression in the scope of this stack frame. If not specified,
      * the expression is evaluated in the global scope.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub frameId: Option<i32>,
 
     /**
@@ -750,6 +807,7 @@ pub struct EvaluateArguments {
      * is true.
      * etc.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub context: Option<EvalContext>,
 
     /**
@@ -757,6 +815,7 @@ pub struct EvaluateArguments {
      * The attribute is only honored by a debug adapter if the capability
      * 'supportsValueFormattingOptions' is true.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub format: Option<ValueFormat>,
 }
 
@@ -777,11 +836,13 @@ pub struct SetExpressionArguments {
      * Evaluate the expressions in the scope of this stack frame. If not
      * specified, the expressions are evaluated in the global scope.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub frameId: Option<i32>,
 
     /**
      * Specifies how the resulting value should be formatted.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub format: Option<ValueFormat>,
 }
 
@@ -810,6 +871,7 @@ pub struct GotoTargetsArguments {
     /**
      * An optional column location for which the goto targets are determined.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub column: Option<i32>,
 }
 
@@ -820,6 +882,7 @@ pub struct CompletionsArguments {
      * Returns completions in the scope of this stack frame. If not specified, the
      * completions are returned for the global scope.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub frameId: Option<i32>,
 
     /**
@@ -837,6 +900,7 @@ pub struct CompletionsArguments {
      * An optional line for which to determine the completion proposals. If
      * missing the first line of the text is assumed.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub line: Option<i32>,
 }
 
@@ -861,6 +925,7 @@ pub struct ReadMemoryArguments {
      * Optional offset (in bytes) to be applied to the reference location before
      * reading data. Can be negative.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub offset: Option<i32>,
 
     /**
@@ -881,6 +946,7 @@ pub struct WriteMemoryArguments {
      * Optional offset (in bytes) to be applied to the reference location before
      * writing data. Can be negative.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub offset: Option<i32>,
 
     /**
@@ -892,6 +958,7 @@ pub struct WriteMemoryArguments {
      * If false or missing, a debug adapter should attempt to verify the region is
      * writable before writing, and fail the response if it is not.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub allowPartial: Option<bool>,
 
     /**
@@ -913,12 +980,14 @@ pub struct DisassembleArguments {
      * Optional offset (in bytes) to be applied to the reference location before
      * disassembling. Can be negative.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub offset: Option<i32>,
 
     /**
      * Optional offset (in instructions) to be applied after the byte offset (if
      * any) before disassembling. Can be negative.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub instructionOffset: Option<i32>,
 
     /**
@@ -934,5 +1003,6 @@ pub struct DisassembleArguments {
      * If true, the adapter should attempt to resolve memory addresses and other
      * values to symbolic names.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub resolveSymbols: Option<bool>,
 }

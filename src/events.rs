@@ -63,23 +63,27 @@ pub struct StoppedEvent {
      * The full reason for the event, e.g. 'Paused on exception'. This String is
      * shown in the UI as is and must be translated.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
 
     /**
      * The thread which was stopped.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub threadId: Option<i32>,
 
     /**
      * A value of true hints to the frontend that this event should not change
      * the focus.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub preserveFocusHint: Option<bool>,
 
     /**
      * Additional information. E.g. if reason is 'exception', text contains the
      * exception name. This String is shown in the UI.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub text: Option<String>,
 
     /**
@@ -90,6 +94,7 @@ pub struct StoppedEvent {
      * - If the attribute is missing or false, only the thread with the given
      * threadId can be expanded.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub allThreadsStopped: Option<bool>,
 
     /**
@@ -102,6 +107,7 @@ pub struct StoppedEvent {
      * - Multiple function breakpoints with different function names map to the
      * same location.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub hitBreakpointIds: Option<Vec<i32>>,
 }
 
@@ -117,6 +123,7 @@ pub struct ContinuedEvent {
      * If 'allThreadsContinued' is true, a debug adapter can announce that all
      * threads have continued.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub allThreadsContinued: Option<bool>,
 }
 
@@ -138,6 +145,7 @@ pub struct TerminatedEvent {
      * The value is not interpreted by the client and passed unmodified as an
      * attribute '__restart' to the 'launch' and 'attach' requests.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub restart: Option<String>,
 }
 
@@ -206,6 +214,7 @@ pub struct OutputEvent {
      * user.
      * etc.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub category: Option<Category>,
 
     /**
@@ -229,6 +238,7 @@ pub struct OutputEvent {
      * group.
      * etc.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub group: Option<Group>,
 
     /**
@@ -237,21 +247,25 @@ pub struct OutputEvent {
      * 'variablesReference' to the 'variables' request. The value should be less
      * than or equal to 2147483647 (2^31-1).
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub variablesReference: Option<i32>,
 
     /**
      * An optional source location where the output was produced.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub source: Option<Source>,
 
     /**
      * An optional source location line where the output was produced.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub line: Option<i32>,
 
     /**
      * An optional source location column where the output was produced.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub column: Option<i32>,
 
     /**
@@ -259,6 +273,7 @@ pub struct OutputEvent {
      * sent to telemetry, for the other categories the data is shown in JSON
      * format.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub data: Option<String>,
 }
 
@@ -330,12 +345,14 @@ pub struct ProcessEvent {
      * The system process id of the debugged process. This property will be
      * missing for non-system processes.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub systemProcessId: Option<i32>,
 
     /**
      * If true, the process is running on the same computer as the debug
      * adapter.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub isLocalProcess: Option<bool>,
 
     /**
@@ -347,12 +364,14 @@ pub struct ProcessEvent {
      * new process in a suspended state and then asked the debugger to attach.
      * etc.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub startMethod: Option<StartMethod>,
 
     /**
      * The size of a pointer or address for this process, in bits. This value
      * may be used by clients when formatting addresses for display.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub pointerSize: Option<i32>,
 }
 
@@ -389,6 +408,7 @@ pub struct ProgressStartEvent {
      * If the request ID is omitted, the progress report is assumed to be
      * related to some general activity of the debug adapter.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub requestId: Option<i32>,
 
     /**
@@ -399,17 +419,20 @@ pub struct ProgressStartEvent {
      * Clients that don't support cancellation are allowed to ignore the
      * setting.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub cancellable: Option<bool>,
 
     /**
      * Optional, more detailed progress message.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 
     /**
      * Optional progress percentage to display (value range: 0 to 100). If
      * omitted no percentage will be shown.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub percentage: Option<i32>,
 }
 
@@ -425,12 +448,14 @@ pub struct ProgressUpdateEvent {
      * Optional, more detailed progress message. If omitted, the previous
      * message (if any) is used.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 
     /**
      * Optional progress percentage to display (value range: 0 to 100). If
      * omitted no percentage will be shown.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub percentage: Option<i32>,
 }
 
@@ -446,6 +471,7 @@ pub struct ProgressEndEvent {
      * Optional, more detailed progress message. If omitted, the previous
      * message (if any) is used.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
 }
 
@@ -459,18 +485,21 @@ pub struct InvalidatedEvent {
      * property is missing, empty, or if values are not understand the client
      * should assume a single value 'all'.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub areas: Option<Vec<InvalidatedAreas>>,
 
     /**
      * If specified, the client only needs to refetch data related to this
      * thread.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub threadId: Option<i32>,
 
     /**
      * If specified, the client only needs to refetch data related to this stack
      * frame (and the 'threadId' is ignored).
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub stackFrameId: Option<i32>,
 }
 

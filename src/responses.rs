@@ -107,6 +107,7 @@ pub struct SetExceptionBreakpointsResponse {
      * start with 'filters' information first, followed by 'filterOptions'
      * information.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub breakpoints: Option<Vec<Breakpoint>>,
 }
 
@@ -118,6 +119,7 @@ pub struct DataBreakpointInfoResponse {
      * with the setDataBreakpoints request or null if no data breakpoint is
      * available.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub dataId: Option<String>,
 
     /**
@@ -130,12 +132,14 @@ pub struct DataBreakpointInfoResponse {
      * Optional attribute listing the available access types for a potential
      * data breakpoint. A UI frontend could surface this information.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub accessTypes: Option<Vec<DataBreakpointAccessType>>,
 
     /**
      * Optional attribute indicating that a potential data breakpoint could be
      * persisted across sessions.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub canPersist: Option<bool>,
 }
 
@@ -167,6 +171,7 @@ pub struct ContinueResponse {
      * threads have been resumed. The value false must be returned if not all
      * threads were resumed.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub allThreadsContinued: Option<bool>,
 }
 
@@ -188,6 +193,7 @@ pub struct StackTraceResponse {
      * totalFrames values for subsequent requests can be used to enforce paging
      * in the client.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub totalFrames: Option<i32>,
 }
 
@@ -223,6 +229,7 @@ pub struct SetVariableResponse {
      * the value.
      */
     #[serde(rename = "type")]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub variable_type: Option<String>,
 
     /**
@@ -231,6 +238,7 @@ pub struct SetVariableResponse {
      * VariablesRequest.
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub variablesReference: Option<i32>,
 
     /**
@@ -239,6 +247,7 @@ pub struct SetVariableResponse {
      * a paged UI and fetch them in chunks.
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub namedVariables: Option<i32>,
 
     /**
@@ -247,6 +256,7 @@ pub struct SetVariableResponse {
      * a paged UI and fetch them in chunks.
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub indexedVariables: Option<i32>,
 }
 
@@ -261,6 +271,7 @@ pub struct SourceResponse {
     /**
      * Optional content type (mime type) of the source.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub mimeType: Option<String>,
 }
 
@@ -284,6 +295,7 @@ pub struct ModulesResponse {
     /**
      * The total number of modules available.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub totalModules: Option<i32>,
 }
 
@@ -311,12 +323,14 @@ pub struct EvaluateResponse {
      * the 'initialize' request.
      */
     #[serde(rename = "type")]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub result_type: Option<String>,
 
     /**
      * Properties of a evaluate result that can be used to determine how to
      * render the result in the UI.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub presentationHint: Option<VariablePresentationHint>,
 
     /**
@@ -333,6 +347,7 @@ pub struct EvaluateResponse {
      * a paged UI and fetch them in chunks.
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub namedVariables: Option<i32>,
 
     /**
@@ -341,6 +356,7 @@ pub struct EvaluateResponse {
      * a paged UI and fetch them in chunks.
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub indexedVariables: Option<i32>,
 
     /**
@@ -351,6 +367,7 @@ pub struct EvaluateResponse {
      * passed the value true for the 'supportsMemoryReferences' capability of
      * the 'initialize' request.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub memoryReference: Option<String>,
 }
 
@@ -369,12 +386,14 @@ pub struct SetExpressionResponse {
      * the 'initialize' request.
      */
     #[serde(rename = "type")]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub value_type: Option<String>,
 
     /**
      * Properties of a value that can be used to determine how to render the
      * result in the UI.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub presentationHint: Option<VariablePresentationHint>,
 
     /**
@@ -382,6 +401,7 @@ pub struct SetExpressionResponse {
      * can be retrieved by passing variablesReference to the VariablesRequest.
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub variablesReference: Option<i32>,
 
     /**
@@ -390,6 +410,7 @@ pub struct SetExpressionResponse {
      * a paged UI and fetch them in chunks.
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub namedVariables: Option<i32>,
 
     /**
@@ -398,6 +419,7 @@ pub struct SetExpressionResponse {
      * a paged UI and fetch them in chunks.
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub indexedVariables: Option<i32>,
 }
 
@@ -439,6 +461,7 @@ pub struct ExceptionInfoResponse {
     /**
      * Descriptive text for the exception provided by the debug adapter.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
 
     /**
@@ -449,6 +472,7 @@ pub struct ExceptionInfoResponse {
     /**
      * Detailed information about the exception.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub details: Option<ExceptionDetails>,
 }
 
@@ -468,11 +492,13 @@ pub struct ReadMemoryResponse {
      * This can be used to determine the number of bytes that must be skipped
      * before a subsequent 'readMemory' request will succeed.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub unreadableBytes: Option<i32>,
 
     /**
      * The bytes read from memory, encoded using base64.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub data: Option<String>,
 }
 
@@ -484,6 +510,7 @@ pub struct WriteMemoryResponse {
      * indicate the offset of the first byte of data successfully written. Can
      * be negative.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub offset: Option<i32>,
 
     /**
@@ -491,6 +518,7 @@ pub struct WriteMemoryResponse {
      * indicate the number of bytes starting from address that were successfully
      * written.
      */
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub bytesWritten: Option<i32>,
 }
 
