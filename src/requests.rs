@@ -105,18 +105,18 @@ pub struct InitializeRequestArguments {
      * The ID of the (frontend) client using this adapter.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub clientID: Option<String>,
+    pub client_id: Option<String>,
 
     /**
      * The human readable name of the (frontend) client using this adapter.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub clientName: Option<String>,
+    pub client_name: Option<String>,
 
     /**
      * The ID of the debug adapter.
      */
-    pub adapterID: String,
+    pub adapter_id: String,
 
     /**
      * The ISO-639 locale of the (frontend) client using this adapter, e.g. en-US
@@ -129,13 +129,13 @@ pub struct InitializeRequestArguments {
      * If true all line numbers are 1-based (default).
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub linesStartAt1: Option<bool>,
+    pub lines_start_at1: Option<bool>,
 
     /**
      * If true all column numbers are 1-based (default).
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub columnsStartAt1: Option<bool>,
+    pub columns_start_at1: Option<bool>,
 
     /**
      * Determines in what format paths are specified. The default is 'path', which
@@ -143,49 +143,49 @@ pub struct InitializeRequestArguments {
      * Values: 'path', 'uri', etc.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub pathFormat: Option<PathFormat>,
+    pub path_format: Option<PathFormat>,
 
     /**
      * Client supports the optional type attribute for variables.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub supportsVariableType: Option<bool>,
+    pub supports_variable_type: Option<bool>,
 
     /**
      * Client supports the paging of variables.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub supportsVariablePaging: Option<bool>,
+    pub supports_variable_paging: Option<bool>,
 
     /**
      * Client supports the runInTerminal request.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub supportsRunInTerminalRequest: Option<bool>,
+    pub supports_run_in_terminal_request: Option<bool>,
 
     /**
      * Client supports memory references.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub supportsMemoryReferences: Option<bool>,
+    pub supports_memory_references: Option<bool>,
 
     /**
      * Client supports progress reporting.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub supportsProgressReporting: Option<bool>,
+    pub supports_progress_reporting: Option<bool>,
 
     /**
      * Client supports the invalidated event.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub supportsInvalidatedEvent: Option<bool>,
+    pub supports_invalidated_event: Option<bool>,
 
     /**
      * Client supports the memory event.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub supportsMemoryEvent: Option<bool>,
+    pub supports_memory_event: Option<bool>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -196,7 +196,7 @@ pub struct LaunchRequestArguments {
      * enabling debugging.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub noDebug: Option<bool>,
+    pub no_debug: Option<bool>,
 
     /**
      * Optional data from the previous, restarted session.
@@ -283,7 +283,7 @@ pub struct DisconnectArguments {
      * 'supportTerminateDebuggee' is true.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub terminateDebuggee: Option<bool>,
+    pub terminate_debuggee: Option<bool>,
 
     /**
      * Indicates whether the debuggee should stay suspended when the debugger is
@@ -293,7 +293,7 @@ pub struct DisconnectArguments {
      * 'supportSuspendDebuggee' is true.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub suspendDebuggee: Option<bool>,
+    pub suspend_debuggee: Option<bool>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -334,7 +334,7 @@ pub struct BreakpointLocationsArguments {
      * no end line is given, then the end line is assumed to be the start line.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub endLine: Option<i32>,
+    pub end_line: Option<i32>,
 
     /**
      * Optional end column of range to search possible breakpoint locations in. If
@@ -342,7 +342,7 @@ pub struct BreakpointLocationsArguments {
      * end line.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub endColumn: Option<i32>,
+    pub end_column: Option<i32>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -371,7 +371,7 @@ pub struct SetBreakpointsArguments {
      * which results in new breakpoint locations.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub sourceModified: Option<bool>,
+    pub source_modified: Option<bool>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -401,7 +401,7 @@ pub struct SetExceptionBreakpointsArguments {
      * 'filterOptions' sets are additive.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub filterOptions: Option<Vec<ExceptionFilterOptions>>,
+    pub filter_options: Option<Vec<ExceptionFilterOptions>>,
 
     /**
      * Configuration options for selected exceptions.
@@ -409,7 +409,7 @@ pub struct SetExceptionBreakpointsArguments {
      * 'supportsExceptionOptions' is true.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub exceptionOptions: Option<Vec<ExceptionOptions>>,
+    pub exception_options: Option<Vec<ExceptionOptions>>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -420,7 +420,7 @@ pub struct DataBreakpointInfoArguments {
      * a child of the container.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub variablesReference: Option<i32>,
+    pub variables_reference: Option<i32>,
 
     /**
      * The name of the Variable's child to obtain data breakpoint information for.
@@ -456,14 +456,14 @@ pub struct ContinueArguments {
      * execution (see 'supportsSingleThreadExecutionRequests') and the optional
      * argument 'singleThread' is true, only the thread with this ID is resumed.
      */
-    pub threadId: i32,
+    pub thread_id: i32,
 
     /**
      * If this optional flag is true, execution is resumed only for the thread
      * with given 'threadId'.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub singleThread: Option<bool>,
+    pub single_thread: Option<bool>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -473,13 +473,13 @@ pub struct NextArguments {
      * Specifies the thread for which to resume execution for one step (of the
      * given granularity).
      */
-    pub threadId: i32,
+    pub thread_id: i32,
 
     /**
      * If this optional flag is true, all other suspended threads are not resumed.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub singleThread: Option<bool>,
+    pub single_thread: Option<bool>,
 
     /**
      * Optional granularity to step. If no granularity is specified, a granularity
@@ -496,19 +496,19 @@ pub struct StepInArguments {
      * Specifies the thread for which to resume execution for one step-into (of
      * the given granularity).
      */
-    pub threadId: i32,
+    pub thread_id: i32,
 
     /**
      * If this optional flag is true, all other suspended threads are not resumed.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub singleThread: Option<bool>,
+    pub single_thread: Option<bool>,
 
     /**
      * Optional id of the target to step into.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub targetId: Option<i32>,
+    pub target_id: Option<i32>,
 
     /**
      * Optional granularity to step. If no granularity is specified, a granularity
@@ -525,13 +525,13 @@ pub struct StepOutArguments {
      * Specifies the thread for which to resume execution for one step-out (of the
      * given granularity).
      */
-    pub threadId: i32,
+    pub thread_id: i32,
 
     /**
      * If this optional flag is true, all other suspended threads are not resumed.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub singleThread: Option<bool>,
+    pub single_thread: Option<bool>,
 
     /**
      * Optional granularity to step. If no granularity is specified, a granularity
@@ -548,13 +548,13 @@ pub struct StepBackArguments {
      * Specifies the thread for which to resume execution for one step backwards
      * (of the given granularity).
      */
-    pub threadId: i32,
+    pub thread_id: i32,
 
     /**
      * If this optional flag is true, all other suspended threads are not resumed.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub singleThread: Option<bool>,
+    pub single_thread: Option<bool>,
 
     /**
      * Optional granularity to step. If no granularity is specified, a granularity
@@ -572,14 +572,14 @@ pub struct ReverseContinueArguments {
      * execution (see 'supportsSingleThreadExecutionRequests') and the optional
      * argument 'singleThread' is true, only the thread with this ID is resumed.
      */
-    pub threadId: i32,
+    pub thread_id: i32,
 
     /**
      * If this optional flag is true, backward execution is resumed only for the
      * thread with given 'threadId'.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub singleThread: Option<bool>,
+    pub single_thread: Option<bool>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -588,7 +588,7 @@ pub struct RestartFrameArguments {
     /**
      * Restart this stackframe.
      */
-    pub frameId: i32,
+    pub frame_id: i32,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -597,12 +597,12 @@ pub struct GotoArguments {
     /**
      * Set the goto target for this thread.
      */
-    pub threadId: i32,
+    pub thread_id: i32,
 
     /**
      * The location where the debuggee will continue to run.
      */
-    pub targetId: i32,
+    pub target_id: i32,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -611,7 +611,7 @@ pub struct PauseArguments {
     /**
      * Pause execution for this thread.
      */
-    pub threadId: i32,
+    pub thread_id: i32,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -620,13 +620,13 @@ pub struct StackTraceArguments {
     /**
      * Retrieve the stacktrace for this thread.
      */
-    pub threadId: i32,
+    pub thread_id: i32,
 
     /**
      * The index of the first frame to return; if omitted frames start at 0.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub startFrame: Option<i32>,
+    pub start_frame: Option<i32>,
 
     /**
      * The maximum number of frames to return. If levels is not specified or 0,
@@ -650,7 +650,7 @@ pub struct ScopesArguments {
     /**
      * Retrieve the scopes for this stackframe.
      */
-    pub frameId: i32,
+    pub frame_id: i32,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -666,7 +666,7 @@ pub struct VariablesArguments {
     /**
      * The Variable reference.
      */
-    pub variablesReference: i32,
+    pub variables_reference: i32,
 
     /**
      * Optional filter to limit the child variables to either named or indexed. If
@@ -704,7 +704,7 @@ pub struct SetVariableArguments {
     /**
      * The reference of the variable container.
      */
-    pub variablesReference: i32,
+    pub variables_reference: i32,
 
     /**
      * The name of the variable in the container.
@@ -738,7 +738,7 @@ pub struct SourceArguments {
      * This is provided for backward compatibility since old backends do not
      * understand the 'source' attribute.
      */
-    pub sourceReference: i32,
+    pub source_reference: i32,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -748,7 +748,7 @@ pub struct TerminateThreadsArguments {
      * Ids of threads to be terminated.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub threadIds: Option<Vec<i32>>,
+    pub thread_ids: Option<Vec<i32>>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -758,14 +758,14 @@ pub struct ModulesArguments {
      * The index of the first module to return; if omitted modules start at 0.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub startModule: Option<i32>,
+    pub start_module: Option<i32>,
 
     /**
      * The number of modules to return. If moduleCount is not specified or 0, all
      * modules are returned.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub moduleCount: Option<i32>,
+    pub module_count: Option<i32>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -791,7 +791,7 @@ pub struct EvaluateArguments {
      * the expression is evaluated in the global scope.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub frameId: Option<i32>,
+    pub frame_id: Option<i32>,
 
     /**
      * The context in which the evaluate request is used.
@@ -837,7 +837,7 @@ pub struct SetExpressionArguments {
      * specified, the expressions are evaluated in the global scope.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub frameId: Option<i32>,
+    pub frame_id: Option<i32>,
 
     /**
      * Specifies how the resulting value should be formatted.
@@ -852,7 +852,7 @@ pub struct StepInTargetsArguments {
     /**
      * The stack frame for which to retrieve the possible stepIn targets.
      */
-    pub frameId: i32,
+    pub frame_id: i32,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -883,7 +883,7 @@ pub struct CompletionsArguments {
      * completions are returned for the global scope.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub frameId: Option<i32>,
+    pub frame_id: Option<i32>,
 
     /**
      * One or more source lines. Typically this is the text a user has typed into
@@ -910,7 +910,7 @@ pub struct ExceptionInfoArguments {
     /**
      * Thread for which exception information should be retrieved.
      */
-    pub threadId: i32,
+    pub thread_id: i32,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -919,7 +919,7 @@ pub struct ReadMemoryArguments {
     /**
      * Memory reference to the base location from which data should be read.
      */
-    pub memoryReference: String,
+    pub memory_reference: String,
 
     /**
      * Optional offset (in bytes) to be applied to the reference location before
@@ -940,7 +940,7 @@ pub struct WriteMemoryArguments {
     /**
      * Memory reference to the base location to which data should be written.
      */
-    pub memoryReference: String,
+    pub memory_reference: String,
 
     /**
      * Optional offset (in bytes) to be applied to the reference location before
@@ -959,7 +959,7 @@ pub struct WriteMemoryArguments {
      * writable before writing, and fail the response if it is not.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub allowPartial: Option<bool>,
+    pub allow_partial: Option<bool>,
 
     /**
      * Bytes to write, encoded using base64.
@@ -974,7 +974,7 @@ pub struct DisassembleArguments {
      * Memory reference to the base location containing the instructions to
      * disassemble.
      */
-    pub memoryReference: String,
+    pub memory_reference: String,
 
     /**
      * Optional offset (in bytes) to be applied to the reference location before
@@ -988,7 +988,7 @@ pub struct DisassembleArguments {
      * any) before disassembling. Can be negative.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub instructionOffset: Option<i32>,
+    pub instruction_offset: Option<i32>,
 
     /**
      * Number of instructions to disassemble starting at the specified location
@@ -997,12 +997,12 @@ pub struct DisassembleArguments {
      * unavailable instructions should be replaced with an implementation-defined
      * 'invalid instruction' value.
      */
-    pub instructionCount: i32,
+    pub instruction_count: i32,
 
     /**
      * If true, the adapter should attempt to resolve memory addresses and other
      * values to symbolic names.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub resolveSymbols: Option<bool>,
+    pub resolve_symbols: Option<bool>,
 }

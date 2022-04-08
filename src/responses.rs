@@ -120,7 +120,7 @@ pub struct DataBreakpointInfoResponse {
      * available.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub dataId: Option<String>,
+    pub data_id: Option<String>,
 
     /**
      * UI String that describes on what data the breakpoint is set on or why a
@@ -133,14 +133,14 @@ pub struct DataBreakpointInfoResponse {
      * data breakpoint. A UI frontend could surface this information.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub accessTypes: Option<Vec<DataBreakpointAccessType>>,
+    pub access_types: Option<Vec<DataBreakpointAccessType>>,
 
     /**
      * Optional attribute indicating that a potential data breakpoint could be
      * persisted across sessions.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub canPersist: Option<bool>,
+    pub can_persist: Option<bool>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -172,7 +172,7 @@ pub struct ContinueResponse {
      * threads were resumed.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub allThreadsContinued: Option<bool>,
+    pub all_threads_continued: Option<bool>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -183,7 +183,7 @@ pub struct StackTraceResponse {
      * stackframes available.
      * This means that there is no location information available.
      */
-    pub stackFrames: Vec<StackFrame>,
+    pub stack_frames: Vec<StackFrame>,
 
     /**
      * The total number of frames available in the stack. If omitted or if
@@ -194,7 +194,7 @@ pub struct StackTraceResponse {
      * in the client.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub totalFrames: Option<i32>,
+    pub total_frames: Option<i32>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -239,7 +239,7 @@ pub struct SetVariableResponse {
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub variablesReference: Option<i32>,
+    pub variables_reference: Option<i32>,
 
     /**
      * The number of named child variables.
@@ -248,7 +248,7 @@ pub struct SetVariableResponse {
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub namedVariables: Option<i32>,
+    pub named_variables: Option<i32>,
 
     /**
      * The number of indexed child variables.
@@ -257,7 +257,7 @@ pub struct SetVariableResponse {
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub indexedVariables: Option<i32>,
+    pub indexed_variables: Option<i32>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -272,7 +272,7 @@ pub struct SourceResponse {
      * Optional content type (mime type) of the source.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub mimeType: Option<String>,
+    pub mime_type: Option<String>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -296,7 +296,7 @@ pub struct ModulesResponse {
      * The total number of modules available.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub totalModules: Option<i32>,
+    pub total_modules: Option<i32>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -331,7 +331,7 @@ pub struct EvaluateResponse {
      * render the result in the UI.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub presentationHint: Option<VariablePresentationHint>,
+    pub presentation_hint: Option<VariablePresentationHint>,
 
     /**
      * If variablesReference is > 0, the evaluate result is structured and its
@@ -339,7 +339,7 @@ pub struct EvaluateResponse {
      * VariablesRequest.
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
-    pub variablesReference: i32,
+    pub variables_reference: i32,
 
     /**
      * The number of named child variables.
@@ -348,7 +348,7 @@ pub struct EvaluateResponse {
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub namedVariables: Option<i32>,
+    pub named_variables: Option<i32>,
 
     /**
      * The number of indexed child variables.
@@ -357,7 +357,7 @@ pub struct EvaluateResponse {
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub indexedVariables: Option<i32>,
+    pub indexed_variables: Option<i32>,
 
     /**
      * Optional memory reference to a location appropriate for this result.
@@ -368,7 +368,7 @@ pub struct EvaluateResponse {
      * the 'initialize' request.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub memoryReference: Option<String>,
+    pub memory_reference: Option<String>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -394,7 +394,7 @@ pub struct SetExpressionResponse {
      * result in the UI.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub presentationHint: Option<VariablePresentationHint>,
+    pub presentation_hint: Option<VariablePresentationHint>,
 
     /**
      * If variablesReference is > 0, the value is structured and its children
@@ -402,7 +402,7 @@ pub struct SetExpressionResponse {
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub variablesReference: Option<i32>,
+    pub variables_reference: Option<i32>,
 
     /**
      * The number of named child variables.
@@ -411,7 +411,7 @@ pub struct SetExpressionResponse {
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub namedVariables: Option<i32>,
+    pub named_variables: Option<i32>,
 
     /**
      * The number of indexed child variables.
@@ -420,7 +420,7 @@ pub struct SetExpressionResponse {
      * The value should be less than or equal to 2147483647 (2^31-1).
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub indexedVariables: Option<i32>,
+    pub indexed_variables: Option<i32>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -456,7 +456,7 @@ pub struct ExceptionInfoResponse {
     /**
      * ID of the exception that was thrown.
      */
-    pub exceptionId: String,
+    pub exception_id: String,
 
     /**
      * Descriptive text for the exception provided by the debug adapter.
@@ -467,7 +467,7 @@ pub struct ExceptionInfoResponse {
     /**
      * Mode that caused the exception notification to be raised.
      */
-    pub breakMode: ExceptionBreakMode,
+    pub break_mode: ExceptionBreakMode,
 
     /**
      * Detailed information about the exception.
@@ -493,7 +493,7 @@ pub struct ReadMemoryResponse {
      * before a subsequent 'readMemory' request will succeed.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub unreadableBytes: Option<i32>,
+    pub unreadable_bytes: Option<i32>,
 
     /**
      * The bytes read from memory, encoded using base64.
@@ -519,7 +519,7 @@ pub struct WriteMemoryResponse {
      * written.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub bytesWritten: Option<i32>,
+    pub bytes_written: Option<i32>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]

@@ -70,14 +70,14 @@ pub struct StoppedEvent {
      * The thread which was stopped.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub threadId: Option<i32>,
+    pub thread_id: Option<i32>,
 
     /**
      * A value of true hints to the frontend that this event should not change
      * the focus.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub preserveFocusHint: Option<bool>,
+    pub preserve_focus_hint: Option<bool>,
 
     /**
      * Additional information. E.g. if reason is 'exception', text contains the
@@ -95,7 +95,7 @@ pub struct StoppedEvent {
      * threadId can be expanded.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub allThreadsStopped: Option<bool>,
+    pub all_threads_stopped: Option<bool>,
 
     /**
      * Ids of the breakpoints that triggered the event. In most cases there will
@@ -108,7 +108,7 @@ pub struct StoppedEvent {
      * same location.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub hitBreakpointIds: Option<Vec<i32>>,
+    pub hit_breakpoint_ids: Option<Vec<i32>>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -117,14 +117,14 @@ pub struct ContinuedEvent {
     /**
      * The thread which was continued.
      */
-    pub threadId: i32,
+    pub thread_id: i32,
 
     /**
      * If 'allThreadsContinued' is true, a debug adapter can announce that all
      * threads have continued.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub allThreadsContinued: Option<bool>,
+    pub all_threads_continued: Option<bool>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -133,7 +133,7 @@ pub struct ExitedEvent {
     /**
      * The exit code returned from the debuggee.
      */
-    pub exitCode: i32,
+    pub exit_code: i32,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -171,7 +171,7 @@ pub struct ThreadEvent {
     /**
      * The identifier of the thread.
      */
-    pub threadId: i32,
+    pub thread_id: i32,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -248,7 +248,7 @@ pub struct OutputEvent {
      * than or equal to 2147483647 (2^31-1).
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub variablesReference: Option<i32>,
+    pub variables_reference: Option<i32>,
 
     /**
      * An optional source location where the output was produced.
@@ -346,14 +346,14 @@ pub struct ProcessEvent {
      * missing for non-system processes.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub systemProcessId: Option<i32>,
+    pub system_process_id: Option<i32>,
 
     /**
      * If true, the process is running on the same computer as the debug
      * adapter.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub isLocalProcess: Option<bool>,
+    pub is_local_process: Option<bool>,
 
     /**
      * Describes how the debug engine started debugging this process.
@@ -365,14 +365,14 @@ pub struct ProcessEvent {
      * etc.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub startMethod: Option<StartMethod>,
+    pub start_method: Option<StartMethod>,
 
     /**
      * The size of a pointer or address for this process, in bits. This value
      * may be used by clients when formatting addresses for display.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub pointerSize: Option<i32>,
+    pub pointer_size: Option<i32>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -392,7 +392,7 @@ pub struct ProgressStartEvent {
      * events to make them refer to the same progress reporting.
      * IDs must be unique within a debug session.
      */
-    pub progressId: String,
+    pub progress_id: String,
 
     /**
      * Mandatory (short) title of the progress reporting. Shown in the UI to
@@ -409,7 +409,7 @@ pub struct ProgressStartEvent {
      * related to some general activity of the debug adapter.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub requestId: Option<i32>,
+    pub request_id: Option<i32>,
 
     /**
      * If true, the request that reports progress may be canceled with a
@@ -442,7 +442,7 @@ pub struct ProgressUpdateEvent {
     /**
      * The ID that was introduced in the initial 'progressStart' event.
      */
-    pub progressId: String,
+    pub progress_id: String,
 
     /**
      * Optional, more detailed progress message. If omitted, the previous
@@ -465,7 +465,7 @@ pub struct ProgressEndEvent {
     /**
      * The ID that was introduced in the initial 'ProgressStartEvent'.
      */
-    pub progressId: String,
+    pub progress_id: String,
 
     /**
      * Optional, more detailed progress message. If omitted, the previous
@@ -493,14 +493,14 @@ pub struct InvalidatedEvent {
      * thread.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub threadId: Option<i32>,
+    pub thread_id: Option<i32>,
 
     /**
      * If specified, the client only needs to refetch data related to this stack
      * frame (and the 'threadId' is ignored).
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub stackFrameId: Option<i32>,
+    pub stack_frame_id: Option<i32>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
@@ -509,7 +509,7 @@ pub struct MemoryEvent {
     /**
      * Memory reference of a memory range that has been updated.
      */
-    pub memoryReference: String,
+    pub memory_reference: String,
 
     /**
      * Starting offset in bytes where memory has been updated. Can be negative.
