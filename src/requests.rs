@@ -116,6 +116,7 @@ pub struct InitializeRequestArguments {
     /**
      * The ID of the debug adapter.
      */
+    #[serde(rename = "adapterID")]
     pub adapter_id: String,
 
     /**
