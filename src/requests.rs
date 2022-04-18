@@ -4,7 +4,7 @@ use std::collections::HashMap;
 use crate::types::*;
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
-#[serde(rename_all = "lowercase", tag = "command", content = "arguments")]
+#[serde(rename_all = "camelCase", tag = "command", content = "arguments")]
 pub enum RequestCommand {
     Initialize(InitializeRequestArguments),
     ConfigurationDone,
