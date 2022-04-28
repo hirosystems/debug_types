@@ -593,25 +593,25 @@ pub struct StackFrame {
      * The line within the file of the frame. If source is null or doesn't exist,
      * line is 0 and must be ignored.
      */
-    pub line: i32,
+    pub line: u32,
 
     /**
      * The column within the line. If source is null or doesn't exist, column is 0
      * and must be ignored.
      */
-    pub column: i32,
+    pub column: u32,
 
     /**
      * An optional end line of the range covered by the stack frame.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub end_line: Option<i32>,
+    pub end_line: Option<u32>,
 
     /**
      * An optional end column of the range covered by the stack frame.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub end_column: Option<i32>,
+    pub end_column: Option<u32>,
 
     /**
      * Indicates whether this frame can be restarted with the 'restart' request.
@@ -679,7 +679,7 @@ pub struct Scope {
      * paged UI and fetch them in chunks.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub named_variables: Option<i32>,
+    pub named_variables: Option<usize>,
 
     /**
      * The number of indexed variables in this scope.
@@ -687,7 +687,7 @@ pub struct Scope {
      * paged UI and fetch them in chunks.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub indexed_variables: Option<i32>,
+    pub indexed_variables: Option<usize>,
 
     /**
      * If true, the number of variables in this scope is large or expensive to
@@ -866,7 +866,7 @@ pub struct VariablePresentationHint {
      * etc.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    kind: Option<VariableKind>,
+    pub kind: Option<VariableKind>,
 
     /**
      * Set of attributes represented as an array of Strings. Before introducing
@@ -886,7 +886,7 @@ pub struct VariablePresentationHint {
      * etc.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    attributes: Option<Vec<VariableAttribute>>,
+    pub attributes: Option<Vec<VariableAttribute>>,
 
     /**
      * Visibility of variable. Before introducing additional values, try to use
@@ -944,13 +944,13 @@ pub struct SourceBreakpoint {
     /**
      * The source line of the breakpoint or logpoint.
      */
-    pub line: i32,
+    pub line: u32,
 
     /**
      * An optional source column of the breakpoint.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub column: Option<i32>,
+    pub column: Option<u32>,
 
     /**
      * An optional expression for conditional breakpoints.
@@ -1090,7 +1090,7 @@ pub struct Breakpoint {
      * events are used to update or remove breakpoints.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub id: Option<i32>,
+    pub id: Option<usize>,
 
     /**
      * If true breakpoint could be set (but not necessarily at the desired
@@ -1116,19 +1116,19 @@ pub struct Breakpoint {
      * The start line of the actual range covered by the breakpoint.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub line: Option<i32>,
+    pub line: Option<u32>,
 
     /**
      * An optional start column of the actual range covered by the breakpoint.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub column: Option<i32>,
+    pub column: Option<u32>,
 
     /**
      * An optional end line of the actual range covered by the breakpoint.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub end_line: Option<i32>,
+    pub end_line: Option<u32>,
 
     /**
      * An optional end column of the actual range covered by the breakpoint.
@@ -1136,7 +1136,7 @@ pub struct Breakpoint {
      * line.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub end_column: Option<i32>,
+    pub end_column: Option<u32>,
 
     /**
      * An optional memory reference to where the breakpoint is set.

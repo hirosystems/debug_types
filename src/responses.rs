@@ -13,7 +13,7 @@ pub struct Response {
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
-#[serde(rename_all = "lowercase", tag = "command", content = "body")]
+#[serde(rename_all = "camelCase", tag = "command", content = "body")]
 pub enum ResponseBody {
     Initialize(InitializeResponse),
     ConfigurationDone,

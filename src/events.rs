@@ -57,7 +57,7 @@ pub struct StoppedEvent {
      * Values: 'step', 'breakpoint', 'exception', 'pause', 'entry', 'goto',
      * 'function breakpoint', 'data breakpoint', 'instruction breakpoint', etc.
      */
-    reason: StoppedReason,
+    pub reason: StoppedReason,
 
     /**
      * The full reason for the event, e.g. 'Paused on exception'. This String is
@@ -108,7 +108,7 @@ pub struct StoppedEvent {
      * same location.
      */
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub hit_breakpoint_ids: Option<Vec<i32>>,
+    pub hit_breakpoint_ids: Option<Vec<usize>>,
 }
 
 #[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
