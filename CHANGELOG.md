@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/hirosystems/dap_types/compare/v1.0.0...v1.0.1) (2022-05-02)
+
+
+### Bug Fixes
+
+* change name to `dap_types` ([52d9065](https://github.com/hirosystems/dap_types/commit/52d9065b99e6a3a7833759b7ee57d3a676f17a35))
+
 # 1.0.0 (2022-05-02)
 
 
