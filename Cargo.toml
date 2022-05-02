@@ -1,14 +1,14 @@
 [package]
 edition = "2018"
-name = "dap-types"
+name = "dap_types"
 version = "1.0.0"
 authors = ["Brice Dobry <brice@hiro.so>"]
 description = "Types for interacting with a debugger, using the Debug Adapter Protocol"
-documentation = "https://docs.rs/dap-types"
+documentation = "https://docs.rs/dap_types"
 readme = "README.md"
 keywords = ["dap", "debugger", "vscode"]
 license = "MIT"
-repository = "https://github.com/hirosystems/dap-types"
+repository = "https://github.com/hirosystems/dap_types"
 
 [dependencies]
 serde = { version = "1.0.136", features = ["derive"] }
